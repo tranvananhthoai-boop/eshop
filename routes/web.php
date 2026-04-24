@@ -18,12 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function(){
-    return 'Hello World';
+    return 'Page home';
 })->name('home');
 
 Route::get('/shop', function(){
     return 'Page Shop';
-});
+})->middleware('checkAge');
 
 Route::get('/about', function(){
     return 'Page About';
@@ -48,5 +48,5 @@ Route::prefix('admin')->group(function(){
 
 Route::get('user/{name?}', function($name = 'John'){
     return $name;
-});
+    });
 });
